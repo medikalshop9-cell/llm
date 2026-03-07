@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AfriLearn Nigeria Dataset Row",
+  "description": "Schema for NERDC Nigeria curriculum training examples. Every row must validate against this schema before entering the training pipeline.",
+  "type": "object",
+  "required": ["instruction", "input", "output"],
+  "additionalProperties": false,
+  "properties": {
+    "instruction": {
+      "type": "string",
+      "description": "Task contract including curriculum anchor. Must contain all required tags.",
+      "pattern": "COUNTRY: Nigeria.*SUBJECT:.*GRADE: Primary [1-6].*TERM: [1-3].*WEEK: ([1-9]|10).*DIFFICULTY: (easy|medium|hard).*TASK:",
+      "minLength": 50,
+      "maxLength": 800
+    },
+    "input": {
+      "type": "string",
+      "description": "Runtime student context. Must contain all required state fields.",
+      "pattern": "student_age: \\d+.*session_streak:.*last_topic_score:.*device_locale: Nigeria",
+      "minLength": 30,
+      "maxLength": 500
+    },
+    "output": {
+      "type": "string",
+      "description": "Ground truth response. Must contain QUESTION, CORRECT_ANSWER, DIFFICULTY, and CURRICULUM_REF.",
+      "pattern": "QUESTION:.*CORRECT_ANSWER: [ABCD].*DIFFICULTY: (easy|medium|hard).*CURRICULUM_REF: NERDC-NG-",
+      "minLength": 60,
+      "maxLength": 2000
+    }
+  },
+  "examples": [
+    {
+      "instruction": "COUNTRY: Nigeria | SUBJECT: Mathematics | GRADE: Primary 3 | TERM: 2 | WEEK: 4 | TOPIC: Multiplication of 2-digit numbers by 1-digit numbers | DIFFICULTY: medium | TASK: Generate one multiple-choice question aligned to NERDC Primary 3 T2 W4 scope.",
+      "input": "student_age: 8 | session_streak: 2_correct | last_topic_score: 60% | prior_topic: addition_of_2digit | device_locale: Nigeria",
+      "output": "QUESTION: What is 24 × 3?\nA) 62\nB) 72\nC) 68\nD) 74\n\nCORRECT_ANSWER: B\nEXPLANATION: Multiply the ones digit first: 4 × 3 = 12, write 2 carry 1. Then tens digit: 2 × 3 = 6, add carry = 7. Result: 72.\nDIFFICULTY: medium\nCURRICULUM_REF: NERDC-NG-MATH-P3-T2-W4"
+    }
+  ]
+}

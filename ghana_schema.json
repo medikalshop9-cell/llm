@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AfriLearn Ghana Dataset Row",
+  "description": "Schema for NaCCA Ghana Standards-Based Curriculum training examples. Every row must validate against this schema before entering the training pipeline.",
+  "type": "object",
+  "required": ["instruction", "input", "output"],
+  "additionalProperties": false,
+  "properties": {
+    "instruction": {
+      "type": "string",
+      "description": "Task contract including NaCCA strand/sub-strand anchor. Must contain all required tags.",
+      "pattern": "COUNTRY: Ghana.*SUBJECT:.*GRADE: Basic [1-6].*STRAND:.*DIFFICULTY: (easy|medium|hard).*TASK:",
+      "minLength": 50,
+      "maxLength": 800
+    },
+    "input": {
+      "type": "string",
+      "description": "Runtime student context. Must contain all required state fields.",
+      "pattern": "student_age: \\d+.*session_streak:.*last_topic_score:.*device_locale: Ghana",
+      "minLength": 30,
+      "maxLength": 500
+    },
+    "output": {
+      "type": "string",
+      "description": "Ground truth response. Must contain QUESTION, CORRECT_ANSWER, DIFFICULTY, and CURRICULUM_REF.",
+      "pattern": "QUESTION:.*CORRECT_ANSWER: [ABCD].*DIFFICULTY: (easy|medium|hard).*CURRICULUM_REF: NACCA-GH-",
+      "minLength": 60,
+      "maxLength": 2000
+    }
+  },
+  "examples": [
+    {
+      "instruction": "COUNTRY: Ghana | SUBJECT: Mathematics | GRADE: Basic 4 | PHASE: Upper Primary | STRAND: Number | SUB_STRAND: Fractions | CONTENT_STANDARD: B4.1.3.1 | DIFFICULTY: medium | TASK: Generate one multiple-choice question aligned to NaCCA B4 Mathematics Strand: Number, Sub-strand: Fractions.",
+      "input": "student_age: 9 | session_streak: 1_correct | last_topic_score: 55% | prior_sub_strand: whole_numbers | device_locale: Ghana",
+      "output": "QUESTION: What is one half of 20?\nA) 5\nB) 8\nC) 10\nD) 15\n\nCORRECT_ANSWER: C\nEXPLANATION: One half means divide by 2. 20 ÷ 2 = 10.\nDIFFICULTY: medium\nCURRICULUM_REF: NACCA-GH-MATH-B4-NUMBER-FRACTIONS-B4.1.3.1"
+    }
+  ]
+}

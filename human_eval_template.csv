@@ -1,0 +1,11 @@
+row_id,country,subject,grade,difficulty,curriculum_ref,model_output,age_appropriate_1_5,curriculum_aligned_1_5,clarity_1_5,correct_answer_accurate,reviewer_notes,reviewer_name,review_date
+1,Nigeria,Mathematics,Primary 3,medium,NERDC-NG-MATH-P3-T2-W4,"[paste model output here]",,,,,,,
+2,Nigeria,English Studies,Primary 5,hard,NERDC-NG-ENG-P5-T1-W7,"[paste model output here]",,,,,,,
+3,Nigeria,Basic Science and Technology,Primary 4,easy,NERDC-NG-BST-P4-T3-W2,"[paste model output here]",,,,,,,
+4,Nigeria,Social and Citizenship Studies,Primary 2,easy,NERDC-NG-SCS-P2-T1-W3,"[paste model output here]",,,,,,,
+5,Nigeria,Christian Religious Studies,Primary 6,medium,NERDC-NG-CRS-P6-T2-W5,"[paste model output here]",,,,,,,
+6,Nigeria,Computer Studies,Primary 5,medium,NERDC-NG-CS-P5-T1-W6,"[paste model output here]",,,,,,,
+7,Nigeria,Physical and Health Education,Primary 3,easy,NERDC-NG-PHE-P3-T2-W8,"[paste model output here]",,,,,,,
+8,Ghana,Mathematics,Basic 4,medium,NACCA-GH-MATH-B4-NUMBER-FRACTIONS-B4.1.3.1,"[paste model output here]",,,,,,,
+9,Ghana,English Language,Basic 2,easy,NACCA-GH-ENG-B2-READING-PHONOLOGICAL-B2.1.1.1,"[paste model output here]",,,,,,,
+10,Ghana,Our World and Our People,Basic 2,easy,NACCA-GH-OWOP-B2-HOME_COMMUNITY,"[paste model output here]",,,,,,,
